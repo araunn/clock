@@ -26,22 +26,22 @@ public class ClockRestController {
   }
   
   @PutMapping ("/methodA")
-  String getMethodA() {
-	String res = service.getMethodA();  
+  String setMethodA() {
+	String res = service.setMethodA();  
 	LOG.debug(res);
 	return res;
   }
   
   @PutMapping ("/methodB")
-  String getMethodB() {
-	String res = service.getMethodB();  
+  String setMethodB() {
+	String res = service.setMethodB();  
 	LOG.debug(res);
 	return res;
   }
   
   @PutMapping ("/switch") 
-  String getMethodC() {
-	String res = service.getSwitch();  
+  String updateSwitch() {
+	String res = service.updateSwitch();  
 	LOG.debug(res);
 	return res;
   }

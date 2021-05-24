@@ -44,7 +44,7 @@ public class ClockServiceImpl implements ClockApi{
 		}
 	
 	@Override
-	public String getMethodA() {
+	public String setMethodA() {
 		String res = clockRepo.getClokcMode(clockMode);
 		LOG.trace("Respons from DB {}", res);   
 		if (res==null) {
@@ -54,7 +54,7 @@ public class ClockServiceImpl implements ClockApi{
 	}
 
 	@Override
-	public String getMethodB() {
+	public String setMethodB() {
 		String res = clockRepo.getClokcMode(clockMode);
 		LOG.trace("Respons from DB {}", res);
 		if (res==null) {
@@ -65,7 +65,7 @@ public class ClockServiceImpl implements ClockApi{
 
 	@Override
 	@Transactional
-	public String getSwitch() {  
+	public String updateSwitch() {  
 		clockMode++;
 		if (clockMode > maxModes) {
 			clockMode=1;

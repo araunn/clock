@@ -4,9 +4,9 @@ public interface ClockApi {
 	
 	String getTime();
 
-	String getMethodA();
+	String setMethodA();
 	
-	String getMethodB();
+	String setMethodB();
 	
-	String getSwitch();
+	String updateSwitch();
 }
