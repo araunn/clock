@@ -40,13 +40,16 @@ public class ClockServiceImpl implements ClockApi{
 	@Override
 	public String getTime() {
 			LocalDateTime time= LocalDateTime.now();
-	return time.format(formatter);
+	return "Current time: " + time.format(formatter);
 		}
 	
 	@Override
 	public String getMethodA() {
 		String res = clockRepo.getClokcMode(clockMode);
-		LOG.trace("Respons from DB {}", res);
+		LOG.trace("Respons from DB {}", res);   
+		if (res==null) {
+			return "Wrong clock Mode. Not exist mode: " + clockMode;
+		}
 		return "Working mode: "+res+" and method: A";
 	}
 
@@ -54,6 +57,9 @@ public class ClockServiceImpl implements ClockApi{
 	public String getMethodB() {
 		String res = clockRepo.getClokcMode(clockMode);
 		LOG.trace("Respons from DB {}", res);
+		if (res==null) {
+			return "Wrong clock Mode. Not exist mode: " + clockMode;
+		}
 		return "Working mode: "+res+" and method: B";
 	}
 
@@ -67,6 +73,10 @@ public class ClockServiceImpl implements ClockApi{
 		LOG.trace("Change clokMode. new value:{}",clockMode);
 		String res = clockRepo.getClokcMode(clockMode);
 		LOG.trace("Respons from DB {}", res);
+		if (res==null) {
+			clockMode=1;
+			return "Wrong clock Mode. Set default mode: Clock";
+		}
 		return "Working method mode switching. Switched on mode: "+ res; 
 	}
 
