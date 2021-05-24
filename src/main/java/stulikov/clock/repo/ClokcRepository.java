@@ -13,7 +13,7 @@ public class ClokcRepository {
 	  @PostConstruct
 	   void createDB () {
 		generateClockModeBases();
-	  } 
+	  }
 	  
 	HashMap<Integer,String> clockModeBases = new HashMap<Integer, String>();
 	
